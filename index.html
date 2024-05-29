@@ -8,53 +8,47 @@
   </head>
   <body>
     <div class="navbar">
-      <a href="#" id="listarOption">Listar</a>
-      <a href="#" id="pesquisarOption">Pesquisar</a>
-      <!-- Novo botão de pesquisa -->
+      <a href="#" id="showHome">Home</a>
+      <a href="#" id="listarColaboladores">Colaboladores</a>
+      <a href="#" id="pesquisarColaboladores">Pesquisar</a>
+      <a href="#" id="incluirColaboladores">Incluir</a>
+      <a href="#" id="updtColaboladores">Atualizar</a>
+      <a href="#" id="delColaboladores">Deletar</a>
     </div>
 
     <div class="container">
-      <h1>Bem-vindo à Página Home</h1>
-      <p>
-        Este é um exemplo de uma página inicial com uma barra de navegação
-        simples.
-      </p>
+      <div id="homepage">
+        <h1>Bem-vindo ao meu projeto!</h1>
+      </div>
+      <div id="tableColaboladores" style="display: none">
+        <h1>Lista de Colaboladores</h1>
+        <table id="itemTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Data de Admissão</th>
+              <th>Remuneração</th>
+              <th>Cargo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="pagination">
+          <button id="prevPage">Anterior</button>
+          <span id="pageInfo"></span>
+          <button id="nextPage">Próxima</button>
+        </div>
+      </div>
     </div>
 
     <div id="overlay"></div>
 
-    <!-- Diálogo de Listar (existente) -->
-    <div id="dialogListar">
-      <h2>Lista de Itens</h2>
-      <table id="itemTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Data de Admissão</th>
-            <th>Remuneração</th>
-            <th>Cargo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Linhas serão adicionadas aqui -->
-        </tbody>
-      </table>
-      <div id="pagination">
-        <button id="prevPage">Anterior</button>
-        <span id="pageInfo"></span>
-        <button id="nextPage">Próxima</button>
-      </div>
-      <button id="closeButton">Fechar</button>
-    </div>
-
-    <div id="dialogPesquisar" style="display: none">
+    <div id="dialogPesquisar" class="dialog" style="display: none">
       <h2>Pesquisar Colaboradores</h2>
       <label for="searchInput">Nome:</label>
       <input type="text" id="searchInput" name="searchInput" /><br /><br />
-      <button id="searchButton">Pesquisar</button>
-      <button id="closePesquisarButton">Fechar</button>
 
       <table id="colaboradoresTable" style="display: none">
         <thead>
@@ -71,7 +65,65 @@
       </table>
     </div>
 
+    <div id="dialogColaboladores" class="dialog" style="display: none">
+      <h2>Incluir Colaboradores</h2>
+      <form id="incluiColaboradoresForm">
+        <label>Nome:</label><br />
+        <input type="text" id="addNomeInput" name="nome" /><br />
+        <label>CPF:</label><br />
+        <input type="text" id="addCpfInput" name="cpf" /><br />
+        <label>Data de Admissão:</label><br />
+        <input type="text" id="addDtAdmInput" name="dataAdmissao" placeholder="dd/mm/yyyy"/><br />
+        <label>Remuneração (R$):</label><br />
+        <input type="number" id="addRmnInput" name="remuneracao" /><br />
+        <label>Cargo:</label><br />
+        <select name="cargo" id="addCargoInput">
+          <option value="">SELECIONE O CARGO</option>
+          <option value="1">GERENTE</option>
+          <option value="2">SUBORDINADO</option></select
+        ><br /><br />
+        <button type="submit">Salvar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+      </form>
+    </div>
+
+    <div id="dialogUpdt" class="dialog" style="display: none">
+      <h2>Atualizar Colabolador</h2>
+      <input type="text" id="IdBuscar" placeholder="Digite o ID do Usuário:" />
+      <button id="btnIdBuscar">Buscar</button>
+      <div id="updateForm" style="display: none">
+        <label>Nome:</label><br />
+        <input type="text" id="updtNomeInput" name="nome" /><br />
+        <label>CPF:</label><br />
+        <input type="text" id="updtCpfInput" name="cpf" /><br />
+        <label>Data de Admissão:</label><br />
+        <input type="text" id="updtDtAdmInput" name="dataAdmissao" placeholder="dd/mm/yyyy"/><br />
+        <label>Remuneração (R$):</label><br />
+        <input type="number" id="updtRmnInput" name="remuneracao" /><br />
+        <label>Cargo:</label><br />
+        <select name="cargo" id="updtCargoInput">
+          <option value="1">GERENTE</option>
+          <option value="2">SUBORDINADO</option></select
+        ><br /><br />
+        <button type="submit" id="btnUpdate">Atualizar</button>
+      </form>
+      </div>
+    </div>
+
+    <div id="dialogDel" class="dialog" style="display: none">
+      <h2>Deletar Colabolador</h2>
+      <input type="text" id="IdBuscarDel" placeholder="Digite o ID do Usuário:" />
+      <button id="btnIdBuscarDel">Buscar</button>
+      <div id="deleteForm" style="display: none"> 
+        <button type="button" id="btnDeletar">DELETAR</button>
+      </div>
+    </div>
+
+    <script src="src/controllers/home.controller.js"></script>
     <script src="src/controllers/listar.controller.js"></script>
     <script src="src/controllers/pesquisar.controller.js"></script>
+    <script src="src/controllers/incluir.controller.js"></script>
+    <script src="src/controllers/atualizar.controller.js"></script>
+    <script src="src/controllers/delete.controller.js"></script>
   </body>
 </html>

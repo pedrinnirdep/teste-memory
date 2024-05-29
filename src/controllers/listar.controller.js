@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-  const listarOption = document.getElementById("listarOption");
-  const closeButton = document.getElementById("closeButton");
-  const overlay = document.getElementById("overlay");
-  const dialog = document.getElementById("dialogListar");
+  const listarOption = document.getElementById("listarColaboladores");
   const prevPage = document.getElementById("prevPage");
   const nextPage = document.getElementById("nextPage");
   const pageInfo = document.getElementById("pageInfo");
+  const homepage = document.getElementById("homepage");
+  const tableColaboladores = document.getElementById("tableColaboladores");
 
   let currentPage = 1;
   const itemsPerPage = 10;
@@ -14,16 +13,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let totalPages = 0;
 
   listarOption.addEventListener("click", function (event) {
-    event.preventDefault(); // Previne o comportamento padrão do link
+    event.preventDefault();
     fetchItems(currentPage);
-  });
-
-  closeButton.addEventListener("click", function () {
-    closeDialog();
-  });
-
-  overlay.addEventListener("click", function () {
-    closeDialog();
+    homepage.style.display = "none";
+    tableColaboladores.style.display = "block";
   });
 
   prevPage.addEventListener("click", function () {
@@ -55,8 +48,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
 
         renderTable();
-        dialog.style.display = "block";
-        overlay.style.display = "block";
       })
       .catch((error) => {
         console.error("Erro ao buscar os itens:", error);
@@ -66,14 +57,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
   }
 
-  function closeDialog() {
-    dialog.style.display = "none";
-    overlay.style.display = "none";
-  }
-
   function renderTable() {
     const itemTable = document.querySelector("#itemTable tbody");
-    itemTable.innerHTML = ""; // Limpa a tabela antes de adicionar itens
+    itemTable.innerHTML = "";
 
     items.forEach((item) => {
       const row = document.createElement("tr");
@@ -88,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const remuneracaoCell = document.createElement("td");
       remuneracaoCell.textContent = item.remuneracao;
       const cargoCell = document.createElement("td");
-      cargoCell.textContent = item.cargo.id; // ou item.cargo.nome, dependendo do que você deseja exibir
+      cargoCell.textContent = item.cargo.id;
       row.appendChild(idCell);
       row.appendChild(nomeCell);
       row.appendChild(cpfCell);

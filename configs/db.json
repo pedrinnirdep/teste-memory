@@ -11,14 +11,14 @@
   ],
   "colaboradores": [
     {
-      "id": "fae1",
-      "nome": "Pedro Mauricio",
+      "nome": "Pedro Mauricio1",
       "cpf": "123.456.789-09",
       "dataAdmissao": "20/02/2024",
-      "remuneracao": 2000,
+      "remuneracao": "2000",
       "cargo": {
-        "id": 2
-      }
+        "id": "2"
+      },
+      "id": "fae1"
     },
     {
       "id": "fae2",
