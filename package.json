@@ -1,0 +1,20 @@
+{
+  "name": "teste-frontend-memory",
+  "version": "1.0.0",
+  "description": "Mini projeto para demonstração de habilidades para vaga Frontend",
+  "scripts": {
+    "backend": "npx json-server configs/db.json",
+    "http-server": "lite-server -c configs/server-config.json",
+    "start": "concurrently --kill-others \"npm run backend\" \"npm run http-server\""
+  },
+  "keywords": [],
+  "author": "Memory Sistemas Lda.",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.8.3",
+    "angularjs-table": "^2.21.5",
+    "concurrently": "8.2.2",
+    "lite-server": "2.6.1",
+    "rxjs": "7.5.0"
+  }
+}

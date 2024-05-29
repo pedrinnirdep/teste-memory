@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Home</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#" id="listarOption">Listar</a>
+    </div>
+
+    <div class="container">
+      <h1>Bem-vindo à Página Home</h1>
+      <p>
+        Este é um exemplo de uma página inicial com uma barra de navegação
+        simples.
+      </p>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="dialog">
+      <h2>Lista de Itens</h2>
+      <table id="itemTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data de Admissão</th>
+            <th>Remuneração</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas serão adicionadas aqui -->
+        </tbody>
+      </table>
+      <div id="pagination">
+        <button id="prevPage">Anterior</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage">Próxima</button>
+      </div>
+      <button id="closeButton">Fechar</button>
+    </div>
+
+    <script src="src/listar/listar.controller.js"></script>
+  </body>
+</html>
