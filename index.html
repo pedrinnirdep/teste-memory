@@ -9,6 +9,8 @@
   <body>
     <div class="navbar">
       <a href="#" id="listarOption">Listar</a>
+      <a href="#" id="pesquisarOption">Pesquisar</a>
+      <!-- Novo botão de pesquisa -->
     </div>
 
     <div class="container">
@@ -21,7 +23,8 @@
 
     <div id="overlay"></div>
 
-    <div id="dialog">
+    <!-- Diálogo de Listar (existente) -->
+    <div id="dialogListar">
       <h2>Lista de Itens</h2>
       <table id="itemTable">
         <thead>
@@ -46,6 +49,29 @@
       <button id="closeButton">Fechar</button>
     </div>
 
-    <script src="src/listar/listar.controller.js"></script>
+    <div id="dialogPesquisar" style="display: none">
+      <h2>Pesquisar Colaboradores</h2>
+      <label for="searchInput">Nome:</label>
+      <input type="text" id="searchInput" name="searchInput" /><br /><br />
+      <button id="searchButton">Pesquisar</button>
+      <button id="closePesquisarButton">Fechar</button>
+
+      <table id="colaboradoresTable" style="display: none">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data de Admissão</th>
+            <th>Remuneração</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody id="colaboradoresBody"></tbody>
+      </table>
+    </div>
+
+    <script src="src/controllers/listar.controller.js"></script>
+    <script src="src/controllers/pesquisar.controller.js"></script>
   </body>
 </html>
