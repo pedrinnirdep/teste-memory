@@ -151,3 +151,30 @@ select {
   z-index: 999;
   display: none;
 }
+
+#colaboradoresTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#colaboradoresTable th,
+#colaboradoresTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#colaboradoresTable th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+#colaboradoresTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#colaboradoresTable tbody tr:hover {
+  background-color: #f2f2f2;
+}
